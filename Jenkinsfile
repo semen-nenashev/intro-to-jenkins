@@ -14,6 +14,10 @@ pipeline {
         }
         success {
             echo 'I succeeded!'
+         
+             mail to: 'semen.nenashev@ringteam.com',
+             subject: "Success Pipeline: ${currentBuild.fullDisplayName}",
+             body: "Everything ok with ${env.BUILD_URL}"
         }
         unstable {
             echo 'I am unstable :/'
